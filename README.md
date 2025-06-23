@@ -1,15 +1,21 @@
-# My React + TypeScript App
+# Metronome GG
 
-A clean starter project using React, TypeScript, and Vite.
+A modern, responsive metronome web app built with React, TypeScript, Vite, and Tailwind CSS.
 
-## Project Overview
-This project is a minimal setup to help you start building your React application quickly. All Vite/React demo code and assets have been removed for a clean slate.
+## Features
+- Accurate metronome timing using the Web Audio API
+- Responsive, accessible UI
+- BPM picker with scroll and button controls
+- Light/dark theme toggle
+- Mobile-friendly design
 
 ## Getting Started
 
 1. **Install dependencies:**
    ```bash
    npm install
+   # or
+   pnpm install
    ```
 2. **Start the development server:**
    ```bash
@@ -24,19 +30,18 @@ This project is a minimal setup to help you start building your React applicatio
    npm run preview
    ```
 
-## Scripts
-- `npm run dev` — Start the development server
-- `npm run build` — Build for production
-- `npm run preview` — Preview the production build
-
 ## Project Structure
 - `src/` — Main source code
+  - `components/` — UI components (Metronome, BpmPicker, ThemeToggle, etc.)
+  - `hooks/` — Custom React hooks
+  - `lib/` — Utility functions
+  - `utils/` — Audio and other helpers
   - `App.tsx` — Main app component
   - `main.tsx` — Entry point
-  - `App.css`, `index.css` — Minimal base styles
+  - `App.css`, `index.css` — Base styles
 - `public/` — Static assets
 - `index.html` — HTML template
 
 ---
 
-Feel free to customize this README and the project structure as your app grows!
+Feel free to customize and extend this project as your needs grow!

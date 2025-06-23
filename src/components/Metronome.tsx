@@ -1,7 +1,7 @@
 import React from 'react';
 import BpmPicker from './BpmPicker';
 import { Button } from "@/components/ui/button"
-
+import { Play, Pause } from 'lucide-react';
 interface MetronomeProps {
   bpm: number;
   isPlaying: boolean;
@@ -12,12 +12,10 @@ interface MetronomeProps {
 
 const Metronome: React.FC<MetronomeProps> = ({ bpm, isPlaying, onStart, onStop, onBpmChange }) => {
   return (
-    <div>
-      <div>
-        <BpmPicker bpm={bpm} setBpm={onBpmChange} />
-      </div>
+    <div className="flex flex-col items-center justify-center">
+      <BpmPicker bpm={bpm} setBpm={onBpmChange} />
       <Button onClick={isPlaying ? onStop : onStart}>
-        {isPlaying ? 'Stop' : 'Start'}
+        {isPlaying ? <Pause/> : <Play/>}
       </Button>
     </div>
   );
