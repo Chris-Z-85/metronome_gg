@@ -1,5 +1,6 @@
 import React from 'react';
 import BpmPicker from './BpmPicker';
+import { Button } from "@/components/ui/button"
 
 interface MetronomeProps {
   bpm: number;
@@ -13,20 +14,11 @@ const Metronome: React.FC<MetronomeProps> = ({ bpm, isPlaying, onStart, onStop, 
   return (
     <div>
       <div>
-        <label htmlFor="bpm">BPM: </label>
-        <input
-          id="bpm"
-          type="number"
-          min={30}
-          max={300}
-          value={bpm}
-          onChange={e => onBpmChange(Number(e.target.value))}
-        />
         <BpmPicker bpm={bpm} setBpm={onBpmChange} />
       </div>
-      <button onClick={isPlaying ? onStop : onStart}>
+      <Button onClick={isPlaying ? onStop : onStart}>
         {isPlaying ? 'Stop' : 'Start'}
-      </button>
+      </Button>
     </div>
   );
 };

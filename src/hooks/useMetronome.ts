@@ -9,7 +9,7 @@ export function useMetronome() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [tick, setTick] = useState(0); // For UI updates
   const nextNoteTime = useRef(0);
-  const timerID = useRef<number | null>(null);
+  const timerID = useRef<ReturnType<typeof setTimeout> | null>(null);
   const audioCtx = useRef<AudioContext | null>(null);
 
   const nextTick = useCallback(() => {
