@@ -17,7 +17,7 @@ export function ThemeToggle({ isCollapsed }: ThemeToggleProps) {
         size="lg"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         className={cn(
-          "flex items-center gap-3 ml-auto mr-4 p-7",
+          "flex items-center gap-3 ml-auto p-7",
           isCollapsed && "justify-center"
         )}
       >
