@@ -1,17 +1,17 @@
-import { Moon, Sun } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTheme } from "next-themes"
-import { cn } from "@/lib/utils"
+import { FaMoon, FaSun } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
+import { cn } from "@/lib/utils";
 
 interface ThemeToggleProps {
-  isCollapsed?: boolean
+  isCollapsed?: boolean;
 }
 
 export function ThemeToggle({ isCollapsed }: ThemeToggleProps) {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex">
+    <div className="flex self-end">
       <Button
         variant="ghost"
         size="lg"
@@ -21,13 +21,11 @@ export function ThemeToggle({ isCollapsed }: ThemeToggleProps) {
           isCollapsed && "justify-center"
         )}
       >
-        {theme === "light" ? (
-          <Moon />
-        ) : (
-          <Sun />
+        {theme === "light" ? <FaMoon /> : <FaSun />}
+        {!isCollapsed && (
+          <span>{theme === "light" ? "Dark" : "Light"} Mode</span>
         )}
-        {!isCollapsed && <span>{theme === "light" ? "Dark" : "Light"} Mode</span>}
       </Button>
     </div>
-  )
-} 
+  );
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 interface BeatIndicatorProps {
   isActive: boolean;
@@ -10,11 +11,13 @@ const BeatIndicator: React.FC<BeatIndicatorProps> = ({
   isActive,
   isFirstBeat,
 }) => {
+  const { theme } = useTheme();
+
   return (
     <div
       className={cn(
         "rounded-full border-2",
-        "w-8 h-6 md:w-10 md:h-8 lg:w-12 lg:h-10",
+        "w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10",
         isFirstBeat ? "border-primary" : "border-secondary",
         isActive ? "animate-beat-pulse" : ""
       )}
@@ -22,8 +25,10 @@ const BeatIndicator: React.FC<BeatIndicatorProps> = ({
         isActive
           ? {
               background: isFirstBeat
-                ? "hsl(var(--primary))"
-                : "hsl(var(--secondary))",
+                ? "grey"
+                : theme === "dark"
+                  ? "white"
+                  : "black",
             }
           : { background: "transparent" }
       }

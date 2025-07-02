@@ -1,5 +1,6 @@
 @keyframes beatPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
@@ -17,4 +18,11 @@
 
 .active {
   animation: beatPulse 150ms ease-in-out;
-} 
+}
+
+.vline {
+  width: 2px;
+  height: 32px;
+  background: #ccc;
+  margin: 0 8px;
+}

@@ -1,6 +1,5 @@
 import React from "react";
-import { Play, Pause } from "lucide-react";
-import { useTheme } from "next-themes";
+import { FaRegCirclePlay, FaRegCirclePause } from "react-icons/fa6";
 
 interface PlayButtonProps {
   isPlaying: boolean;
@@ -21,9 +20,6 @@ const PlayButton: React.FC<PlayButtonProps> = ({
     }
   };
 
-  const { resolvedTheme } = useTheme();
-
-  // Responsive icon size
   let iconSize = 40;
   if (typeof window !== "undefined") {
     if (window.innerWidth >= 1024) {
@@ -36,25 +32,12 @@ const PlayButton: React.FC<PlayButtonProps> = ({
   return (
     <div
       onClick={handlePlayPauseClick}
-      className={`
-        w-16 h-16
-        md:w-20 md:h-20
-        lg:w-24 lg:h-24
-        p-0 rounded-full flex items-center justify-center
-        ${resolvedTheme === "dark" ? "bg-white" : "bg-black"}
-        cursor-pointer hover:opacity-90 transition-opacity
-      `}
+      className="cursor-pointer hover:opacity-80 transition-opacity"
     >
       {isPlaying ? (
-        <Pause
-          size={iconSize}
-          color={resolvedTheme === "dark" ? "black" : "white"}
-        />
+        <FaRegCirclePause size={iconSize} />
       ) : (
-        <Play
-          size={iconSize}
-          color={resolvedTheme === "dark" ? "black" : "white"}
-        />
+        <FaRegCirclePlay size={iconSize} />
       )}
     </div>
   );

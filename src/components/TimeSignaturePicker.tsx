@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "next-themes";
 
 interface TimeSignaturePickerProps {
   beats: number;
@@ -14,22 +15,36 @@ const commonTimeSignatures = [
 ];
 
 const TimeSignaturePicker: React.FC<TimeSignaturePickerProps> = ({
-  beats,
   beatUnit,
+  beats,
   onTimeSignatureChange,
 }) => {
+  const { theme } = useTheme();
+
   return (
-    <div className="flex gap-2 items-center justify-center">
+    <div className="flex gap-2 justify-center items-center">
       {commonTimeSignatures.map((ts) => (
         <div
           key={`${ts.beats}/${ts.beatUnit}`}
           onClick={() => onTimeSignatureChange(ts.beats, ts.beatUnit)}
-          className={`border-2 px-4 py-2 rounded-lg text-lg font-medium transition-colors
-            ${
-              beats === ts.beats && beatUnit === ts.beatUnit
-                ? "bg-primary text-primary-foreground"
-                : "hover:bg-primary/90 hover:text-primary-foreground"
-            }`}
+          className="px-4 py-2 text-lg font-medium rounded-lg border-2 cursor-pointer"
+          style={
+            theme === "dark"
+              ? {
+                  background:
+                    beats === ts.beats && beatUnit === ts.beatUnit
+                      ? "grey"
+                      : "white",
+                  color: "black",
+                }
+              : {
+                  background:
+                    beats === ts.beats && beatUnit === ts.beatUnit
+                      ? "grey"
+                      : "black",
+                  color: "white",
+                }
+          }
         >
           {ts.beats}/{ts.beatUnit}
         </div>

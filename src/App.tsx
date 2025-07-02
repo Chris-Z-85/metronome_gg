@@ -1,8 +1,8 @@
-import './App.css'
-import Metronome from './components/Metronome';
-import { useMetronome } from './hooks/useMetronome';
-import { ThemeProvider } from "@/components/theme-provider"
-
+import "./App.css";
+import Metronome from "./components/Metronome";
+import { useMetronome } from "./hooks/useMetronome";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 function App() {
   const {
@@ -14,12 +14,13 @@ function App() {
     setTimeSignature,
     isPlaying,
     start,
-    stop
+    stop,
   } = useMetronome();
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="h-auto flex flex-col items-center justify-center">
+        <ThemeToggle isCollapsed={true} />
         <Metronome
           bpm={bpm}
           beats={beats}

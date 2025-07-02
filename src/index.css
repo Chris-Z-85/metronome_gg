@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
 }
@@ -49,11 +51,8 @@ html, body, #root {
   --input: 217.2 32.6% 17.5%;
   --ring: 212.7 26.8% 83.9%;
 }
-/* 
-* {
-  @apply border-border;
-}
 
-body {
-  @apply bg-background text-foreground;
-} */
+@font-face {
+  font-family: "Digital7";
+  src: url("src/assets/fonts/Digital7-rg1mL.ttf") format("truetype");
+}
