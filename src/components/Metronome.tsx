@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import BpmPicker from "./BpmPicker";
 import TimeSignaturePicker from "./TimeSignaturePicker";
 import MetronomeOutline from "./MetronomeOutline";
 import PlayButton from "./PlayButton";
 import BeatBox from "./BeatBox";
 import { useTheme } from "next-themes";
+import Timer from "./Timer";
 
 interface MetronomeProps {
   bpm: number;
@@ -30,17 +31,31 @@ const Metronome: React.FC<MetronomeProps> = ({
   onTimeSignatureChange,
 }) => {
   const { theme } = useTheme();
+  const [timerKey, setTimerKey] = useState(0);
+
+  const handleStart = async () => {
+    if (!isPlaying) {
+      setTimerKey((k) => k + 1);
+    }
+    await onStart();
+  };
+
   return (
-    <div className="relative w-full max-w-[600px] mx-auto">
+    <div className="relative w-full max-w-[650px] mx-auto">
       <MetronomeOutline />
       <div className="flex absolute inset-0 flex-col">
         <div className="flex flex-col justify-evenly items-center h-[70%]">
           <BpmPicker bpm={bpm} setBpm={onBpmChange} />
-          <PlayButton isPlaying={isPlaying} onStart={onStart} onStop={onStop} />
+          <PlayButton
+            isPlaying={isPlaying}
+            onStart={handleStart}
+            onStop={onStop}
+          />
+          <Timer isPlaying={isPlaying} key={timerKey} />
         </div>
         <div className="flex flex-col gap-4 justify-evenly items-center h-[30%]">
           <div
-            className="flex gap-4 items-center px-3 py-1 m-2 rounded-lg"
+            className="flex gap-4 items-center px-3 py-1 m-4 w-32 rounded-lg"
             style={
               theme === "dark"
                 ? {

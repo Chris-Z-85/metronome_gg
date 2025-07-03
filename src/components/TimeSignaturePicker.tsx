@@ -22,7 +22,7 @@ const TimeSignaturePicker: React.FC<TimeSignaturePickerProps> = ({
   const { theme } = useTheme();
 
   return (
-    <div className="flex gap-2 justify-center items-center">
+    <div className="flex gap-2 justify-center items-center m-4">
       {commonTimeSignatures.map((ts) => (
         <div
           key={`${ts.beats}/${ts.beatUnit}`}
