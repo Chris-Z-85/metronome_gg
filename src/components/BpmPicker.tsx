@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
-import { useTheme } from "next-themes";
 
 interface BpmPickerProps {
   bpm: number;
@@ -32,23 +31,9 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
     if (bpm > min) setBpm(bpm - 1);
   };
 
-  const bpms = [bpm - 1, bpm, bpm + 1].filter((n) => n >= min && n <= max);
-
-  const { theme } = useTheme();
-
   return (
     <div className="flex flex-col items-center w-full h-64 select-none sm:h-80 md:h-96">
-      <div
-        className="px-3 py-1 m-2 text-base uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg"
-        style={
-          theme === "dark"
-            ? {
-                background: "white",
-                color: "black",
-              }
-            : { background: "black", color: "white" }
-        }
-      >
+      <div className="px-3 py-1 m-2 text-base uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
         <p>Tempo</p>
       </div>
 
@@ -59,24 +44,18 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
         ref={listRef}
       >
         <div className="flex absolute top-0 left-0 flex-col justify-center items-stretch w-full h-full transition-all duration-200 lcd-font">
-          {bpms.map((n, i) => (
-            <div className="flex justify-center w-full" key={n}>
-              <div
-                className={
-                  n === bpm
-                    ? "text-6xl md:text-8xl"
-                    : "text-4xl md:text-5xl text-gray-400"
-                }
-                style={{
-                  textAlign: "center",
-                  display: "inline-block",
-                  margin: i === 1 ? "0.2em 0" : "0.1em 0",
-                }}
-              >
-                {n}
-              </div>
+          <div className="flex justify-center w-full">
+            <div
+              className="text-6xl md:text-8xl"
+              style={{
+                textAlign: "center",
+                display: "inline-block",
+                margin: "0.2em 0",
+              }}
+            >
+              {bpm}
             </div>
-          ))}
+          </div>
         </div>
       </div>
       <FaChevronDown
@@ -84,17 +63,7 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
         onClick={handleDown}
       />
       <div className="flex justify-center items-center mt-4">
-        <span
-          className="px-3 py-1 m-2 text-base uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg"
-          style={
-            theme === "dark"
-              ? {
-                  background: "white",
-                  color: "black",
-                }
-              : { background: "black", color: "white" }
-          }
-        >
+        <span className="px-3 py-1 m-2 text-base uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
           BPM
         </span>
       </div>

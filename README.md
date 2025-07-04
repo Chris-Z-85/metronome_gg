@@ -3,6 +3,7 @@
 A modern, responsive metronome web app built with React, TypeScript, Vite, and Tailwind CSS.
 
 ## Features
+
 - Accurate metronome timing using the Web Audio API
 - Responsive, accessible UI
 - BPM picker with scroll and button controls
@@ -31,6 +32,7 @@ A modern, responsive metronome web app built with React, TypeScript, Vite, and T
    ```
 
 ## Project Structure
+
 - `src/` — Main source code
   - `components/` — UI components (Metronome, BpmPicker, ThemeToggle, etc.)
   - `hooks/` — Custom React hooks
@@ -38,7 +40,7 @@ A modern, responsive metronome web app built with React, TypeScript, Vite, and T
   - `utils/` — Audio and other helpers
   - `App.tsx` — Main app component
   - `main.tsx` — Entry point
-  - `App.css`, `index.css` — Base styles
+  - `index.css` — Base styles
 - `public/` — Static assets
 - `index.html` — HTML template
 

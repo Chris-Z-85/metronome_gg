@@ -1,6 +1,5 @@
 import React from "react";
 import BeatIndicator from "./BeatIndicator";
-import styles from "./BeatIndicator.module.css";
 
 interface BeatBoxProps {
   beats: number;
@@ -18,7 +17,6 @@ const BeatBox: React.FC<BeatBoxProps> = ({ beats, currentBeat }) => {
               isActive={currentBeat === i + 1}
               isFirstBeat={i === 0}
             />
-            {i < beats - 1 && <div className={styles.vline} />}
           </React.Fragment>
         ))}
         <div className="vline" />

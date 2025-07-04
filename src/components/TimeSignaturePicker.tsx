@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "next-themes";
+import { GiGClef } from "react-icons/gi";
 
 interface TimeSignaturePickerProps {
   beats: number;
@@ -19,34 +19,20 @@ const TimeSignaturePicker: React.FC<TimeSignaturePickerProps> = ({
   beats,
   onTimeSignatureChange,
 }) => {
-  const { theme } = useTheme();
-
   return (
     <div className="flex gap-2 justify-center items-center m-4">
+      <GiGClef className="size-10" />
       {commonTimeSignatures.map((ts) => (
         <div
           key={`${ts.beats}/${ts.beatUnit}`}
           onClick={() => onTimeSignatureChange(ts.beats, ts.beatUnit)}
-          className="px-4 py-2 text-lg font-medium rounded-lg border-2 cursor-pointer"
-          style={
-            theme === "dark"
-              ? {
-                  background:
-                    beats === ts.beats && beatUnit === ts.beatUnit
-                      ? "grey"
-                      : "white",
-                  color: "black",
-                }
-              : {
-                  background:
-                    beats === ts.beats && beatUnit === ts.beatUnit
-                      ? "grey"
-                      : "black",
-                  color: "white",
-                }
+          className={
+            `flex flex-col border-[hsl(var(--foreground))] justify-center items-center w-12 h-12 text-lg font-medium rounded-lg border-2 cursor-pointer text-[hsl(var(--background))] ` +
+            `${beats === ts.beats && beatUnit === ts.beatUnit ? "bg-gray-300" : "bg-[hsl(var(--foreground))]"}`
           }
         >
-          {ts.beats}/{ts.beatUnit}
+          <span>{ts.beats} </span>
+          <span className="-mt-3">{ts.beatUnit}</span>
         </div>
       ))}
     </div>

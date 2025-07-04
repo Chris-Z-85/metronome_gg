@@ -1,4 +1,3 @@
-import "./App.css";
 import Metronome from "./components/Metronome";
 import { useMetronome } from "./hooks/useMetronome";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -19,7 +18,7 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="h-auto flex flex-col items-center justify-center">
+      <div className="flex flex-col justify-center items-center h-auto">
         <ThemeToggle isCollapsed={true} />
         <Metronome
           bpm={bpm}
