@@ -11,12 +11,12 @@ const BeatIndicator: React.FC<BeatIndicatorProps> = ({
 }) => {
   return (
     <div
-      className={`rounded-full border-2 w-12 h-6 md:w-14 md:h-8 lg:w-16 lg:h-10
+      className={`rounded-full border-2 w-8 h-4 md:w-14 md:h-7
     ${isFirstBeat ? "border-[hsl(var(--foreground))]" : "border-[hsl(var(--backgorund))]"}
     ${
       isActive
         ? isFirstBeat
-          ? "bg-gray-300"
+          ? "bg-gray-500"
           : "bg-[hsl(var(--foreground))]"
         : "bg-transparent"
     }

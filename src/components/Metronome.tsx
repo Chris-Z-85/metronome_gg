@@ -40,10 +40,10 @@ const Metronome: React.FC<MetronomeProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-[650px] mx-auto">
+    <div className="relative w-full max-w-[650px] aspect-[986/1417] mx-auto overflow-hidden">
       <MetronomeOutline />
-      <div className="flex absolute inset-0 flex-col">
-        <div className="flex flex-col justify-evenly items-center h-[70%]">
+      <div className="absolute inset-0 flex flex-col">
+        <div className="flex flex-col justify-evenly items-center flex-[7] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">
           <BpmPicker bpm={bpm} setBpm={onBpmChange} />
           <PlayButton
             isPlaying={isPlaying}
@@ -52,7 +52,7 @@ const Metronome: React.FC<MetronomeProps> = ({
           />
           <Timer isPlaying={isPlaying} key={timerKey} />
         </div>
-        <div className="flex flex-col gap-4 justify-evenly items-center h-[30%]">
+        <div className="flex flex-col justify-evenly items-center flex-[3] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">
           <Metrum currentBeat={currentBeat} beats={beats} />
           <BeatBox beats={beats} currentBeat={currentBeat} />
           <TimeSignaturePicker

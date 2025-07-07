@@ -33,10 +33,9 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
 
   return (
     <div className="flex flex-col items-center w-full h-64 select-none sm:h-80 md:h-96">
-      <div className="px-3 py-1 m-2 text-base uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
+      <div className="px-2 md:px-3 py-1 m-2 text-sm uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
         <p>Tempo</p>
       </div>
-
       <FaChevronUp className="w-10 h-10 cursor-pointer" onClick={handleUp} />
       <div
         className="overflow-hidden relative w-full h-full"
@@ -63,7 +62,7 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
         onClick={handleDown}
       />
       <div className="flex justify-center items-center mt-4">
-        <span className="px-3 py-1 m-2 text-base uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
+        <span className="px-2 md:px-3 py-1 m-2 text-sm uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
           BPM
         </span>
       </div>

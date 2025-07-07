@@ -18,7 +18,7 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="flex flex-col justify-center items-center h-auto">
+      <div className="flex flex-col justify-center items-center">
         <ThemeToggle isCollapsed={true} />
         <Metronome
           bpm={bpm}

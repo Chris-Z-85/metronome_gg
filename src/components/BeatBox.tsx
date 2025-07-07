@@ -8,7 +8,7 @@ interface BeatBoxProps {
 
 const BeatBox: React.FC<BeatBoxProps> = ({ beats, currentBeat }) => {
   return (
-    <div className="flex flex-col justify-between items-center m-4">
+    <div className="flex flex-col justify-between items-center md:m-4">
       <div className="flex gap-4 items-center">
         <div className="vline" />
         {Array.from({ length: beats }, (_, i) => (

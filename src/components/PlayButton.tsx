@@ -20,24 +20,15 @@ const PlayButton: React.FC<PlayButtonProps> = ({
     }
   };
 
-  let iconSize = 40;
-  if (typeof window !== "undefined") {
-    if (window.innerWidth >= 1024) {
-      iconSize = 80;
-    } else if (window.innerWidth >= 768) {
-      iconSize = 64;
-    }
-  }
-
   return (
     <div
       onClick={handlePlayPauseClick}
       className="cursor-pointer hover:opacity-80 transition-opacity"
     >
       {isPlaying ? (
-        <FaRegCirclePause size={iconSize} />
+        <FaRegCirclePause className="text-5xl md:text-9xl" />
       ) : (
-        <FaRegCirclePlay size={iconSize} />
+        <FaRegCirclePlay className="text-5xl md:text-9xl" />
       )}
     </div>
   );

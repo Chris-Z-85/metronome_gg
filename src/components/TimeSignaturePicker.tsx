@@ -20,19 +20,19 @@ const TimeSignaturePicker: React.FC<TimeSignaturePickerProps> = ({
   onTimeSignatureChange,
 }) => {
   return (
-    <div className="flex gap-2 justify-center items-center m-4">
-      <GiGClef className="size-10" />
+    <div className="flex gap-2 justify-center items-center md:m-4">
+      <GiGClef className="size-6 md:size-10" />
       {commonTimeSignatures.map((ts) => (
         <div
           key={`${ts.beats}/${ts.beatUnit}`}
           onClick={() => onTimeSignatureChange(ts.beats, ts.beatUnit)}
           className={
-            `flex flex-col border-[hsl(var(--foreground))] justify-center items-center w-12 h-12 text-lg font-medium rounded-lg border-2 cursor-pointer text-[hsl(var(--background))] ` +
-            `${beats === ts.beats && beatUnit === ts.beatUnit ? "bg-gray-300" : "bg-[hsl(var(--foreground))]"}`
+            `flex flex-col border-[hsl(var(--foreground))] justify-center items-center w-7 h-7 md:w-12 md:h-12 text-xs md:text-lg font-medium rounded-lg border-2 cursor-pointer text-[hsl(var(--background))] ` +
+            `${beats === ts.beats && beatUnit === ts.beatUnit ? "bg-gray-500" : "bg-[hsl(var(--foreground))]"}`
           }
         >
           <span>{ts.beats} </span>
-          <span className="-mt-3">{ts.beatUnit}</span>
+          <span className="-mt-1 md:-mt-3">{ts.beatUnit}</span>
         </div>
       ))}
     </div>
