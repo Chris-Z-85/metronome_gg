@@ -62,4 +62,5 @@ body,
 .lcd-font {
   font-family: "Digital7", monospace;
   text-align: center;
+  font-size-adjust: 0.35;
 }
