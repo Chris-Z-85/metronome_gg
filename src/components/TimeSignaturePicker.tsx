@@ -27,7 +27,7 @@ const TimeSignaturePicker: React.FC<TimeSignaturePickerProps> = ({
           key={`${ts.beats}/${ts.beatUnit}`}
           onClick={() => onTimeSignatureChange(ts.beats, ts.beatUnit)}
           className={
-            `flex flex-col border-[hsl(var(--foreground))] justify-center items-center w-7 h-7 md:w-12 md:h-12 text-xs md:text-lg font-medium rounded-lg border-2 cursor-pointer text-[hsl(var(--background))] ` +
+            `flex py-2 flex-col border-[hsl(var(--foreground))] justify-center items-center w-8 h-8 md:w-12 md:h-12 text-xs md:text-lg font-medium rounded-lg border-2 cursor-pointer text-[hsl(var(--background))] ` +
             `${beats === ts.beats && beatUnit === ts.beatUnit ? "bg-gray-500" : "bg-[hsl(var(--foreground))]"}`
           }
         >
