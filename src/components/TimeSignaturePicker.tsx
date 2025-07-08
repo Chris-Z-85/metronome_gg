@@ -21,7 +21,7 @@ const TimeSignaturePicker: React.FC<TimeSignaturePickerProps> = ({
 }) => {
   return (
     <div className="flex gap-2 justify-center items-center md:m-4">
-      <GiGClef className="size-6 md:size-10" />
+      <GiGClef aria-hidden="true" className="size-6 md:size-10" />
       {commonTimeSignatures.map((ts) => (
         <div
           key={`${ts.beats}/${ts.beatUnit}`}

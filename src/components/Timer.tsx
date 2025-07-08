@@ -36,7 +36,10 @@ const Timer: React.FC<TimerProps> = ({ isPlaying }) => {
   return (
     <div className="flex items-center font-mono md:text-3xl rounded-lg border-4 border-[hsl(var(--foreground))] lcd-font bg-[hsl(var(--foreground))] text-[hsl(var(--background))]  w-30 md:w-50">
       <span className="inline-flex items-center">
-        <FaRegClock className="mx-2 w-5 h-5 md:mx-4 md:w-7 md:h-7" />
+        <FaRegClock
+          aria-hidden="true"
+          className="mx-2 w-5 h-5 md:mx-4 md:w-7 md:h-7"
+        />
       </span>
       <span className="px-3 py-1 align-middle bg-[hsl(var(--background))] text-[hsl(var(--foreground))] w-18 md:w-30">
         {formatTime(elapsed)}

@@ -14,7 +14,11 @@ export function ThemeToggle({ isCollapsed }: ThemeToggleProps) {
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         className={`flex items-center gap-3 ml-auto p-7 ${isCollapsed ? "justify-center" : ""}`}
       >
-        {theme === "light" ? <FaMoon /> : <FaSun />}
+        {theme === "light" ? (
+          <FaMoon aria-label="Switch to dark mode" />
+        ) : (
+          <FaSun aria-label="Switch to light mode" />
+        )}
         {!isCollapsed && (
           <span>{theme === "light" ? "Dark" : "Light"} Mode</span>
         )}

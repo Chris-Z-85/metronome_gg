@@ -36,7 +36,11 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
       <div className="px-2 md:px-3 py-1 m-2 text-sm uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
         <p>Tempo</p>
       </div>
-      <FaChevronUp className="w-10 h-10 cursor-pointer" onClick={handleUp} />
+      <FaChevronUp
+        aria-label="Increase the BPM"
+        className="w-10 h-10 cursor-pointer"
+        onClick={handleUp}
+      />
       <div
         className="overflow-hidden relative w-full h-full"
         onWheel={handleWheel}
@@ -58,6 +62,7 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
         </div>
       </div>
       <FaChevronDown
+        aria-label="Decrease the BPM"
         className="w-10 h-10 cursor-pointer"
         onClick={handleDown}
       />

@@ -26,9 +26,15 @@ const PlayButton: React.FC<PlayButtonProps> = ({
       className="cursor-pointer hover:opacity-80 transition-opacity"
     >
       {isPlaying ? (
-        <FaRegCirclePause className="text-5xl md:text-9xl" />
+        <FaRegCirclePause
+          aria-label="Pause the metronome"
+          className="text-5xl md:text-9xl"
+        />
       ) : (
-        <FaRegCirclePlay className="text-5xl md:text-9xl" />
+        <FaRegCirclePlay
+          aria-label="Start the metronome"
+          className="text-5xl md:text-9xl"
+        />
       )}
     </div>
   );
