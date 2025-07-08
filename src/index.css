@@ -56,7 +56,7 @@ body,
 
 @font-face {
   font-family: "Digital7";
-  src: url("src/assets/fonts/Digital7-rg1mL.ttf") format("truetype");
+  src: url("/fonts/Digital7-rg1mL.ttf") format("truetype");
 }
 
 .lcd-font {
