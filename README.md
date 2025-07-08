@@ -2,8 +2,8 @@
 
 > A fast, modern, and accessible metronome built with **Vite**, **React**, and **Tailwind CSS**.
 
-![License](https://img.shields.io/github/license/Chris-Z-85//metronome_gg)
-![Issues](https://img.shields.io/github/issues/Chris-Z-85//metronome_gg)
+![License](https://img.shields.io/github/license/Chris-Z-85/metronome_gg)
+![Issues](https://img.shields.io/github/issues/Chris-Z-85/metronome_gg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 ---
@@ -127,7 +127,7 @@ Push to your fork (git push origin feature/my-feature)
 
 Open a Pull Request
 
-See CONTRIBUTING.md for more details (add one if you like).
+See CONTRIBUTING.md for more details.
 
 ## 📃 License
 
@@ -144,7 +144,7 @@ Chris Z
 
 If you find this project helpful:
 
-##c⭐️ Star this repo
+## ⭐️ Star this repo
 
 🍴 Fork it
 
