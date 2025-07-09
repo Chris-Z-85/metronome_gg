@@ -32,7 +32,16 @@ function App() {
           onTimeSignatureChange={setTimeSignature}
         />
         <footer className="text-center text-sm text-muted-foreground py-4">
-          © 2025 Chris Z. — Made in 🇩🇰 Denmark
+          © 2025{' '}
+          <a
+            href="https://chris-z.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className=" hover:text-primary"
+          >
+            Chris Z.
+          </a>{' '}
+          — Made in 🇩🇰 Denmark
         </footer>
       </div>
     </ThemeProvider>
