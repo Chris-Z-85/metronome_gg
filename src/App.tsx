@@ -1,7 +1,7 @@
-import Metronome from "./components/Metronome";
-import { useMetronome } from "./hooks/useMetronome";
-import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
+import Metronome from './components/Metronome';
+import { useMetronome } from './hooks/useMetronome';
+import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 function App() {
   const {
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center h-screen">
         <ThemeToggle isCollapsed={true} />
         <Metronome
           bpm={bpm}
@@ -31,6 +31,9 @@ function App() {
           onBpmChange={setBpm}
           onTimeSignatureChange={setTimeSignature}
         />
+        <footer className="text-center text-sm text-muted-foreground py-4">
+          © 2025 Chris Z. — Made in 🇩🇰 Denmark
+        </footer>
       </div>
     </ThemeProvider>
   );
