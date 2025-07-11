@@ -37,9 +37,9 @@
 
 ## 🖥️ Screenshots
 
-| Light Mode                             | Dark Mode                            |
-| -------------------------------------- | ------------------------------------ |
-| ![Light Mode](./screenshots/light.png) | ![Dark Mode](./screenshots/dark.png) |
+| Light Mode                              | Dark Mode                             |
+| --------------------------------------- | ------------------------------------- |
+| ![Light Mode](./screenshots/light.webp) | ![Dark Mode](./screenshots/dark.webp) |
 
 ---
 
