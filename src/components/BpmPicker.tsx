@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
-import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import React, { useRef, useEffect } from 'react';
+import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 
 interface BpmPickerProps {
   bpm: number;
-  setBpm: (bpm: number) => void;
+  setBpm: React.Dispatch<React.SetStateAction<number>>;
   min?: number;
   max?: number;
 }
@@ -23,13 +23,36 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
     if (e.deltaY < 0 && bpm > min) setBpm(bpm - 1);
   };
 
-  // Click handlers for chevrons
-  const handleUp = () => {
-    if (bpm < max) setBpm(bpm + 1);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startIncrement = () => {
+    if (intervalRef.current) return;
+    setBpm(prev => (prev < max ? prev + 1 : prev));
+    intervalRef.current = setInterval(() => {
+      setBpm(prev => (prev < max ? prev + 1 : prev));
+    }, 100);
   };
-  const handleDown = () => {
-    if (bpm > min) setBpm(bpm - 1);
+
+  const startDecrement = () => {
+    if (intervalRef.current) return;
+    setBpm(prev => (prev > min ? prev - 1 : prev));
+    intervalRef.current = setInterval(() => {
+      setBpm(prev => (prev > min ? prev - 1 : prev));
+    }, 100);
   };
+
+  const stopInterval = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col items-center w-full h-64 select-none sm:h-80 md:h-96">
@@ -39,7 +62,9 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
       <FaChevronUp
         aria-label="Increase the BPM"
         className="w-10 h-10 cursor-pointer"
-        onClick={handleUp}
+        onMouseDown={startIncrement}
+        onMouseUp={stopInterval}
+        onMouseLeave={stopInterval}
       />
       <div
         className="overflow-hidden relative w-full h-full"
@@ -51,9 +76,9 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
             <div
               className="text-6xl md:text-8xl"
               style={{
-                textAlign: "center",
-                display: "inline-block",
-                margin: "0.2em 0",
+                textAlign: 'center',
+                display: 'inline-block',
+                margin: '0.2em 0',
               }}
             >
               {bpm}
@@ -64,7 +89,9 @@ const BpmPicker: React.FC<BpmPickerProps> = ({
       <FaChevronDown
         aria-label="Decrease the BPM"
         className="w-10 h-10 cursor-pointer"
-        onClick={handleDown}
+        onMouseDown={startDecrement}
+        onMouseUp={stopInterval}
+        onMouseLeave={stopInterval}
       />
       <div className="flex justify-center items-center mt-4">
         <span className="px-2 md:px-3 py-1 m-2 text-sm uppercase rounded-lg sm:m-4 md:m-6 lg:m-8 md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
