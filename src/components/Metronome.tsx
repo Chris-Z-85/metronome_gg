@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import BpmPicker from "./BpmPicker";
-import TimeSignaturePicker from "./TimeSignaturePicker";
-import MetronomeOutline from "./MetronomeOutline";
-import PlayButton from "./PlayButton";
-import BeatBox from "./BeatBox";
-import Timer from "./Timer";
-import Metrum from "./Metrum";
+import React, { useState } from 'react';
+import BpmPicker from './BpmPicker';
+import TimeSignaturePicker from './TimeSignaturePicker';
+import MetronomeOutline from './MetronomeOutline';
+import PlayButton from './PlayButton';
+import BeatBox from './BeatBox';
+import Timer from './Timer';
+import Metrum from './Metrum';
 
 interface MetronomeProps {
   bpm: number;
@@ -34,9 +34,14 @@ const Metronome: React.FC<MetronomeProps> = ({
 
   const handleStart = async () => {
     if (!isPlaying) {
-      setTimerKey((k) => k + 1);
+      setTimerKey(k => k + 1);
     }
     await onStart();
+  };
+
+  const handleBpmChange = (value: number | ((prev: number) => number)) => {
+    const newBpm = typeof value === 'function' ? value(bpm) : value;
+    onBpmChange(newBpm);
   };
 
   return (
@@ -44,7 +49,7 @@ const Metronome: React.FC<MetronomeProps> = ({
       <MetronomeOutline />
       <div className="absolute inset-0 flex flex-col">
         <div className="flex flex-col justify-evenly items-center flex-[7] w-full max-w-[80%] px-4 sm:px-8 md:px-12 mx-auto">
-          <BpmPicker bpm={bpm} setBpm={onBpmChange} />
+          <BpmPicker bpm={bpm} setBpm={handleBpmChange} />
           <PlayButton
             isPlaying={isPlaying}
             onStart={handleStart}
