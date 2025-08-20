@@ -1,4 +1,4 @@
-# 🎵 metronome_gg
+# 🎵 The Metronome
 
 > A fast, modern, and accessible metronome built with **Vite**, **React**, and **Tailwind CSS**.
 
